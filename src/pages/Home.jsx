@@ -1,9 +1,12 @@
+import { Outlet } from "react-router-dom";
+import ShopsNavigation from "../components/ShopsNavigation";
+
 const Home = () => {
   return (
     <section>
-      <h1>
-        Make Your Fashion <br></br> Look Swanky.
-      </h1>
+      <h1>Shop page</h1>
+      <ShopsNavigation />
+      <Outlet />
     </section>
   );
 };

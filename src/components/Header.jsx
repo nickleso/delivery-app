@@ -10,9 +10,9 @@ const Header = () => {
       }}
     >
       <nav style={{ display: "flex", gap: "8px" }}>
-        <NavLink to="/">HOME</NavLink>
-        <NavLink to="/shop">Shop</NavLink>
+        <NavLink to="/">Shop</NavLink>
         <NavLink to="/shop-cart">Shop cart</NavLink>
+        <NavLink to="/history">History</NavLink>
       </nav>
     </header>
   );
