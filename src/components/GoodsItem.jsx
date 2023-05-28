@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-
+import { toast } from "react-toastify";
 import { cartActoins } from "../redux/goods/cartSlice";
 
 const GoodsItem = ({ item }) => {
@@ -18,18 +18,23 @@ const GoodsItem = ({ item }) => {
 
   const onItemAddToCart = () => {
     const newItem = {
-      id,
-      title,
-      price,
-      category,
-      image,
-      rating,
-      description,
+      ...item,
       quantity: 1,
       totalPrice: price,
     };
 
     dispatch(cartActoins.addItemToCart(newItem));
+
+    toast.success("Item added to the cart!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   return (

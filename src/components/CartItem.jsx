@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-
 import { cartActoins } from "../redux/goods/cartSlice";
 
 const CartItem = ({ item }) => {
@@ -18,13 +17,7 @@ const CartItem = ({ item }) => {
 
   const onItemAddToCart = () => {
     const newItem = {
-      id,
-      title,
-      price,
-      category,
-      image,
-      rating,
-      description,
+      ...item,
       quantity: 1,
       totalPrice: price,
     };
@@ -33,14 +26,15 @@ const CartItem = ({ item }) => {
   };
 
   const onItemDeleteFromCart = () => {
-    dispatch(removeItemFromCart(id));
+    dispatch(cartActoins.removeItemFromCart(id));
   };
 
   return (
     <li>
       <h3>{title}</h3>
       <img style={{ width: "100px" }} src={image} alt={title} />
-      <b>Price: ${totalPrice}</b>
+      <p>Price per item: ${price.toFixed(2)}</p>
+      <p>Total price: ${totalPrice.toFixed(2)}</p>
 
       <div>
         <div>

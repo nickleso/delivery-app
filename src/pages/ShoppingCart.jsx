@@ -1,15 +1,25 @@
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import { getCart, getCartTotal } from "../redux/goods/selectors";
 import CartItem from "../components/CartItem";
 
 const ShoppingCart = () => {
   const cart = useSelector(getCart);
   const cartTotal = useSelector(getCartTotal);
-  console.log("cartTotal", cartTotal);
-  console.log("cart", cart);
 
   const onCartSubmit = () => {
     console.log("cart submit");
+
+    toast.success("Cart submitted!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   return (
@@ -25,7 +35,7 @@ const ShoppingCart = () => {
           </ul>
           <div>
             <h3>Summary</h3>
-            <b>Total: ${cartTotal}</b>
+            <b>Total: ${cartTotal.toFixed(2)}</b>
             <button onClick={onCartSubmit}>Submit</button>
           </div>
         </>
