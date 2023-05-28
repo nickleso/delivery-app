@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getGoodsFromShop } from "../redux/goods/selectors";
+import { getGoodsFromShop } from "../redux/selectors";
 import GoodsItem from "./GoodsItem";
 
 const GoodsList = ({ shop }) => {
@@ -9,8 +9,23 @@ const GoodsList = ({ shop }) => {
     <>
       {goods.length > 1 && (
         <div>
-          <h2>Shop: {shop}</h2>
-          <ul style={{ display: "flex" }}>
+          <h2
+            style={{
+              textAlign: "center",
+              paddingBottom: "20px",
+            }}
+          >
+            Shop: {shop}
+          </h2>
+          <ul
+            style={{
+              padding: "20px",
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "space-between",
+              border: "1px solid grey",
+            }}
+          >
             {goods.map((item) => (
               <GoodsItem key={item.id} item={item} quantity={1} />
             ))}

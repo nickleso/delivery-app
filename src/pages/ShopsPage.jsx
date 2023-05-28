@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchGoodsByCategory } from "../redux/goods/goodsOperations";
-import { getIsLoading } from "../redux/goods/selectors";
+import { fetchGoodsByCategory } from "../redux/operations";
+import { getIsLoading } from "../redux/selectors";
 
 import GoodsList from "../components/GoodsList";
 import Loader from "../components/Loader";

@@ -3,3 +3,5 @@ export const getIsLoading = (state) => state.goods.isLoading;
 
 export const getCart = (state) => state.cart.cart;
 export const getCartTotal = (state) => state.cart.cartTotal;
+
+export const getHistory = (state) => state.history.historyList;

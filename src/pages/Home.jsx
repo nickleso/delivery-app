@@ -5,8 +5,10 @@ const Home = () => {
   return (
     <section>
       <h1>Shop page</h1>
-      <ShopsNavigation />
-      <Outlet />
+      <div style={{ display: "flex", gap: "20px" }}>
+        <ShopsNavigation />
+        <Outlet />
+      </div>
     </section>
   );
 };

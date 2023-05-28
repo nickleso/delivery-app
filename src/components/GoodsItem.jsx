@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { cartActoins } from "../redux/goods/cartSlice";
+import { cartActoins } from "../redux/cartSlice";
 
 const GoodsItem = ({ item }) => {
   const dispatch = useDispatch();

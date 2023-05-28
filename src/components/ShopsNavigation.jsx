@@ -2,8 +2,9 @@ import { NavLink } from "react-router-dom";
 
 const ShopsNavigation = () => {
   return (
-    <div>
-      <h2>Shops:</h2>
+    <div style={{ minWidth: "200px", padding: "20px" }}>
+      <h2>Food shops:</h2>
+      <h2>Other shops:</h2>
       <ul>
         <li>
           <NavLink to="/shops/electro-world">Electro world</NavLink>

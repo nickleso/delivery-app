@@ -42,6 +42,11 @@ const cartSlice = createSlice({
       itemInCart.totalPrice = itemInCart.price * itemInCart.quantity;
       state.cartTotal -= itemInCart.price;
     },
+
+    refreshCart: (state, action) => {
+      state.cart.splice(0, state.cart.length);
+      state.cartTotal = 0;
+    },
   },
 });
 
