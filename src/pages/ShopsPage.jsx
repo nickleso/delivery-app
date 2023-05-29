@@ -28,10 +28,6 @@ const ShopsPage = () => {
           case "womens-clothing":
             dispatch(fetchGoodsByCategory("women's clothing"));
             break;
-
-          // default:
-          //   dispatch(fetchGoodsByCategory("electronics"));
-          //   break;
         }
       } catch (error) {
         console.log(error);

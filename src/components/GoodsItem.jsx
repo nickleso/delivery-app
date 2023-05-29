@@ -1,8 +1,13 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { cartActoins } from "../redux/cartSlice";
+import { getShoppingAvailable } from "../redux/selectors";
 
 const GoodsItem = ({ item }) => {
+  const shopIsAvailable = useSelector(getShoppingAvailable);
+
+  console.log(shopIsAvailable);
+
   const dispatch = useDispatch();
   const {
     id,
@@ -22,6 +27,20 @@ const GoodsItem = ({ item }) => {
       quantity: 1,
       totalPrice: price,
     };
+
+    if (!shopIsAvailable) {
+      toast.error("At first, submit your cart from previous shop!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
+    }
 
     dispatch(cartActoins.addItemToCart(newItem));
 

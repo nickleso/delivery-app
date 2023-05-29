@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { sendCartDataAndAddHistory } from "./operations";
+import { fetchHistory, sendCartDataAndAddHistory } from "./operations";
 
 const historyInitialState = {
   historyList: [],
@@ -13,6 +13,20 @@ const historySlice = createSlice({
 
   extraReducers: (builder) => {
     builder
+      .addCase(fetchHistory.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchHistory.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.historyList = action.payload;
+      })
+      .addCase(fetchHistory.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+
       .addCase(sendCartDataAndAddHistory.pending, (state) => {
         state.isLoading = true;
         state.error = null;

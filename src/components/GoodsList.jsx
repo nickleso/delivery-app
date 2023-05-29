@@ -7,7 +7,7 @@ const GoodsList = ({ shop }) => {
 
   return (
     <>
-      {goods.length > 1 && (
+      {goods.length > 0 && (
         <div>
           <h2
             style={{
@@ -23,7 +23,6 @@ const GoodsList = ({ shop }) => {
               display: "flex",
               flexWrap: "wrap",
               justifyContent: "space-between",
-              border: "1px solid grey",
             }}
           >
             {goods.map((item) => (
