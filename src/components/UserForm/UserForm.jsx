@@ -15,6 +15,7 @@ import {
   InputWrapper,
 } from "./UserForm.styled";
 import { cartActoins } from "../../redux/cartSlice";
+import { sendCartDataAndAddHistory } from "../../redux/operations";
 
 const UserForm = () => {
   const dispatch = useDispatch();
@@ -22,11 +23,12 @@ const UserForm = () => {
   const cartTotal = useSelector(getCartTotal);
 
   const formSubmit = (values) => {
-    const usersCart = { ...values, cartTotal, cart };
-    // dispatch(logIn(values));
+    const userCart = { ...values, cartTotal, cart };
+
+    dispatch(sendCartDataAndAddHistory(userCart));
     dispatch(cartActoins.refreshCart());
 
-    console.log("usersCart", usersCart);
+    console.log("userCart", userCart);
 
     toast.success("Cart submitted! Thank you!", {
       position: "top-right",

@@ -1,6 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { getGoodsFromShop } from "../redux/selectors";
 import GoodsItem from "./GoodsItem";
+import { StyledList } from "../styles/CardStyles.styled";
 
 const GoodsList = ({ shop }) => {
   const goods = useSelector(getGoodsFromShop);
@@ -17,18 +18,11 @@ const GoodsList = ({ shop }) => {
           >
             Shop: {shop}
           </h2>
-          <ul
-            style={{
-              padding: "20px",
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "space-between",
-            }}
-          >
+          <StyledList>
             {goods.map((item) => (
               <GoodsItem key={item.id} item={item} quantity={1} />
             ))}
-          </ul>
+          </StyledList>
         </div>
       )}
     </>

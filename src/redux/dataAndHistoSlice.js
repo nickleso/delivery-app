@@ -34,7 +34,7 @@ const historySlice = createSlice({
       .addCase(sendCartDataAndAddHistory.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.historyList = action.payload;
+        state.historyList.push(action.payload.data);
       })
       .addCase(sendCartDataAndAddHistory.rejected, (state, action) => {
         state.isLoading = false;

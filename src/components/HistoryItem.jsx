@@ -1,8 +1,10 @@
+import { StyledItem } from "../styles/CardStyles.styled";
+
 const HistoryItem = ({ item }) => {
   const { name, cart, cartTotal } = item;
 
   return (
-    <li>
+    <StyledItem>
       <h3>Order by: {name}</h3>
 
       <ul>
@@ -18,7 +20,7 @@ const HistoryItem = ({ item }) => {
       </ul>
 
       <b>Cart total: ${cartTotal}</b>
-    </li>
+    </StyledItem>
   );
 };
 

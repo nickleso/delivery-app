@@ -12,6 +12,8 @@ const cartSlice = createSlice({
 
   reducers: {
     addItemToCart: (state, action) => {
+      state.shoppingAvaible;
+
       const itemInCart = state.cart.find(
         (item) => item.id === action.payload.id
       );
@@ -20,11 +22,13 @@ const cartSlice = createSlice({
         itemInCart.quantity += 1;
         itemInCart.totalPrice = itemInCart.price * itemInCart.quantity;
         state.cartTotal += itemInCart.price;
+        state.cartTotal.toFixed(2);
         return;
       }
 
       state.cart.push(action.payload);
       state.cartTotal += action.payload.price;
+      state.cartTotal.toFixed(2);
     },
 
     removeItemFromCart: (state, action) => {
@@ -36,12 +40,14 @@ const cartSlice = createSlice({
         );
         state.cart.splice(index, 1);
         state.cartTotal -= itemInCart.price;
+        state.cartTotal.toFixed(2);
         return;
       }
 
       itemInCart.quantity -= 1;
       itemInCart.totalPrice = itemInCart.price * itemInCart.quantity;
       state.cartTotal -= itemInCart.price;
+      state.cartTotal.toFixed(2);
     },
 
     refreshCart: (state, action) => {

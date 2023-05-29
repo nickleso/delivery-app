@@ -10,7 +10,7 @@ const ShoppingCart = () => {
 
   return (
     <section>
-      <h1 style={{ paddingBottom: "20px" }}>Shop cart:</h1>
+      <h1 style={{ paddingBottom: "20px" }}>Shop cart</h1>
 
       {cart.length > 0 ? (
         <>
@@ -30,7 +30,7 @@ const ShoppingCart = () => {
           </div>
         </>
       ) : (
-        <p>Cart is empty, make some orders!</p>
+        <b>Cart is embty, make some orders!</b>
       )}
     </section>
   );

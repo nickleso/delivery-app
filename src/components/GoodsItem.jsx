@@ -2,11 +2,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { cartActoins } from "../redux/cartSlice";
 import { getShoppingAvailable } from "../redux/selectors";
+import {
+  CardImage,
+  ImageCardWrap,
+  StyledItem,
+} from "../styles/CardStyles.styled";
 
 const GoodsItem = ({ item }) => {
   const shopIsAvailable = useSelector(getShoppingAvailable);
 
-  console.log(shopIsAvailable);
+  // console.log(shopIsAvailable);
 
   const dispatch = useDispatch();
   const {
@@ -57,15 +62,25 @@ const GoodsItem = ({ item }) => {
   };
 
   return (
-    <li style={{ width: "300px" }}>
-      <img src={image} alt={title} />
-      <p>Title: {title}</p>
-      <p>Price: ${price}</p>
+    <StyledItem>
+      <ImageCardWrap>
+        <CardImage src={image} alt={title} />
+      </ImageCardWrap>
+
+      <b>Title: {title}</b>
+      <b>Price: ${price}</b>
       <p>Description: {description}</p>
-      <button type="button" onClick={onItemAddToCart}>
+
+      <button
+        style={{
+          marginTop: "auto",
+        }}
+        type="button"
+        onClick={onItemAddToCart}
+      >
         Add to cart
       </button>
-    </li>
+    </StyledItem>
   );
 };
 
