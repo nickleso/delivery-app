@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <nav style={{ display: "flex", gap: "36px" }}>
-        <NavLink to="/">Shop</NavLink>
+        <NavLink to="/shops/bizarre-foods">Shop</NavLink>
         <NavLink to="/shop-cart">Shop cart</NavLink>
         <NavLink to="/history">History</NavLink>
       </nav>

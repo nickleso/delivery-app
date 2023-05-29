@@ -66,7 +66,7 @@ export const GlobalStyles = css`
 
   button {
     border-radius: 8px;
-    border: 1px solid transparent;
+    border: 2px solid #f59256;
     padding: 0.6em 1.2em;
     font-size: 1em;
     font-weight: 500;
@@ -77,7 +77,11 @@ export const GlobalStyles = css`
     transition: border-color 0.25s;
   }
   button:hover {
-    border-color: #646cff;
+    background-color: rgba(255, 255, 255, 1);
+    border: 2px solid #f59256;
+    color: rgba(0, 0, 0, 1);
+    transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   button:focus-visible {

@@ -9,14 +9,7 @@ const HistoryList = () => {
   return (
     <>
       {history.length > 0 && (
-        <StyledList
-          style={{
-            padding: "20px",
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-between",
-          }}
-        >
+        <StyledList>
           {history.map((item) => (
             <HistoryItem key={item._id} item={item} />
           ))}

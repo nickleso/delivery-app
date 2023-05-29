@@ -7,7 +7,6 @@ const Home = () => {
       <h1>Shop page</h1>
       <div style={{ display: "flex", gap: "20px" }}>
         <ShopsNavigation />
-        <Outlet />
       </div>
     </section>
   );

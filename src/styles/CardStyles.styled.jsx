@@ -58,7 +58,17 @@ export const ImageCardWrap = styled.div`
 `;
 
 export const CardImage = styled.img`
-  object-fit: contain;
+  object-fit: ${({ category }) => {
+    switch (category) {
+      case "Yummy day":
+        return "cover";
+      case "Bizarre foods":
+        return "cover";
+      default:
+        return "contain";
+    }
+  }};
+
   aspect-ratio: 280/288;
 
   @media screen and (min-width: 768px) {

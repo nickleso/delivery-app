@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 
 import SharedLayout from "./components/SharedLayout";
-import Home from "./pages/Home";
 import ShopsPage from "./pages/ShopsPage";
 import ShoppingCart from "./pages/ShoppingCart";
 import History from "./pages/History";
@@ -15,13 +14,11 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route path="/" element={<Home />}>
-            <Route path="/shops/:shop" element={<ShopsPage />} />
-          </Route>
+          <Route index element={<ShopsPage />} />
+          <Route path="/shops/:shop" element={<ShopsPage />} />
           <Route path="/shop-cart" element={<ShoppingCart />} />
           <Route path="/history" element={<History />} />
         </Route>
-
         <Route path="*" element={<NotFound />} />
       </Routes>
 

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchGoodsByCategory } from "../redux/operations";
 import { getIsLoading } from "../redux/selectors";
 
+import ShopsNavigation from "../components/ShopsNavigation";
 import GoodsList from "../components/GoodsList";
 import Loader from "../components/Loader";
 
@@ -16,6 +17,13 @@ const ShopsPage = () => {
     const searchGoodsInShop = () => {
       try {
         switch (shop) {
+          case "yummy-day":
+            dispatch(fetchGoodsByCategory("Yummy day"));
+            break;
+          case "bizarre-foods":
+            dispatch(fetchGoodsByCategory("Bizarre foods"));
+            break;
+
           case "electro-world":
             dispatch(fetchGoodsByCategory("electronics"));
             break;
@@ -37,7 +45,16 @@ const ShopsPage = () => {
     searchGoodsInShop();
   }, [shop, dispatch]);
 
-  return <>{isLoading ? <Loader /> : <GoodsList shop={shop} />}</>;
+  return (
+    <section>
+      <h1>Shop page</h1>
+      <div style={{ display: "flex", gap: "20px" }}>
+        <ShopsNavigation />
+
+        {isLoading ? <Loader /> : <GoodsList shop={shop} />}
+      </div>
+    </section>
+  );
 };
 
 export default ShopsPage;

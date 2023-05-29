@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchHistory, sendCartDataAndAddHistory } from "./operations";
+import {
+  fetchHistory,
+  fetchHistoryByEmail,
+  fetchHistoryByName,
+  sendCartDataAndAddHistory,
+} from "./operations";
 
 const historyInitialState = {
   historyList: [],
@@ -23,6 +28,34 @@ const historySlice = createSlice({
         state.historyList = action.payload;
       })
       .addCase(fetchHistory.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+
+      .addCase(fetchHistoryByName.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchHistoryByName.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.historyList = action.payload;
+      })
+      .addCase(fetchHistoryByName.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+
+      .addCase(fetchHistoryByEmail.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchHistoryByEmail.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.historyList = action.payload;
+      })
+      .addCase(fetchHistoryByEmail.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })

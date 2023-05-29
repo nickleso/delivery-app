@@ -4,7 +4,7 @@ import { cartActoins } from "../redux/cartSlice";
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();
   const {
-    id,
+    _id,
     title,
     price,
     category,
@@ -26,7 +26,7 @@ const CartItem = ({ item }) => {
   };
 
   const onItemDeleteFromCart = () => {
-    dispatch(cartActoins.removeItemFromCart(id));
+    dispatch(cartActoins.removeItemFromCart(_id));
   };
 
   return (

@@ -28,8 +28,6 @@ const UserForm = () => {
     dispatch(sendCartDataAndAddHistory(userCart));
     dispatch(cartActoins.refreshCart());
 
-    console.log("userCart", userCart);
-
     toast.success("Cart submitted! Thank you!", {
       position: "top-right",
       autoClose: 2000,
@@ -56,9 +54,6 @@ const UserForm = () => {
         setSubmitting(false);
         resetForm();
       }}
-      // onChange={(values, { setSubmitting }) => {
-      //   console.log(values);
-      // }}
     >
       {({ errors, touched }) => (
         <LogInWrapper>

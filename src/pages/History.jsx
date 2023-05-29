@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { fetchHistory } from "../redux/operations";
 
 import HistoryList from "../components/HistoryList";
+import HistorySearch from "../components/SearchBar/HistorySearch";
 
 const History = () => {
   const dispatch = useDispatch();
@@ -30,6 +31,8 @@ const History = () => {
       >
         History page
       </h1>
+
+      <HistorySearch />
 
       {isLoading ? <Loader /> : <HistoryList />}
     </section>

@@ -20,7 +20,7 @@ const ShoppingCart = () => {
             <div>
               <ul>
                 {cart.map((item) => (
-                  <CartItem key={item.id} item={item} />
+                  <CartItem key={item._id} item={item} />
                 ))}
               </ul>
 
@@ -30,7 +30,7 @@ const ShoppingCart = () => {
           </div>
         </>
       ) : (
-        <b>Cart is embty, make some orders!</b>
+        <b>Cart is empty, make some orders!</b>
       )}
     </section>
   );
